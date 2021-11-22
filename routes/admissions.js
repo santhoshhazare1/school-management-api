@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
     try {
         const admission = await Admission.find();
         res.json(admission);
-      console.log(admission,'admission')
+      
     } catch (err) {
         res.json({
             message: err
@@ -34,11 +34,10 @@ router.post('/', (req, res) => {
         address:req.body.user.address
       
     })
-    console.log(req.body.user,'admission================>')
-    console.log(admission,'admission================>222222')
+ 
    const ad= admission.save().then(data => {
         res.json(data);
-        console.log(data,'admission================>3333333')
+  
         const student = new Student({
             name: admission.studentName,
             class: admission.class,
@@ -53,9 +52,6 @@ router.post('/', (req, res) => {
     }).catch(err => {
         res.json({ message: err });
     })
-console.log(admission,'admission object');
-
-
 })
 
 module.exports = router;

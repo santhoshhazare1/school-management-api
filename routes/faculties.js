@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
     try {
         const faculty = await Faculty.find();
         res.json(faculty);
-      console.log(faculty,'student_data')
+      
     } catch (err) {
         res.json({
             message: err
